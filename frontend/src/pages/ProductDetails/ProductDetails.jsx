@@ -2,11 +2,12 @@ import React, {useContext, useEffect, useState} from 'react'
 import {ShopContext} from '../../context/ShopContext'
 import {useParams} from 'react-router-dom'
 import './ProductDetails.css'
+import RelatedProduct from '../../components/RelatedProduct/RelatedProduct'
 
 
 const ProductDetails = () => {
 
-  const {products, currency} = useContext(ShopContext)
+  const {products, currency, addToCart} = useContext(ShopContext)
   const {productId} = useParams()
 
   const [productData, setProductData] = useState(false);
@@ -61,7 +62,7 @@ const ProductDetails = () => {
                 <p>Seamless and Secure Payment</p>
                 <p>Several payment options availavle</p>
               </div>
-              <button className="add-to-cart-btn">ADD TO CART</button>
+              <button onClick={()=>addToCart(productData._id, size)} className="add-to-cart-btn">ADD TO CART</button>
           </div>
         </div>
         <div className="description-review-sect">
@@ -74,6 +75,7 @@ const ProductDetails = () => {
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, mollitia. Doloremque dolorem reiciendis accusamus odit voluptates ducimus, quaerat a alias dolore aut asperiores eligendi soluta natus aliquid libero fuga ex!</p>
           </div>
         </div>
+        <RelatedProduct category={productData.category}/>
       </div>
     </div>
   ) : <div>No product matches with the product id</div>
