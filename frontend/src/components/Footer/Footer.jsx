@@ -16,7 +16,7 @@ const Footer = () => {
             </div>
             <div className="footer-bottom">
                 <div className="footer-left">
-                    <h2>Stylewave</h2>
+                    <h2>GVshopee</h2>
                     <div className="socials">
                         <FaFacebook className='social-icon' />
                         <FaInstagram className='social-icon' />

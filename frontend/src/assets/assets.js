@@ -46,7 +46,7 @@ export const assets = {
 export const product = [
     {
         _id: "a",
-        name: "Sexy Women Basic Casual Fitting Top",
+        name: " Women Basic Casual Fitting Top",
         description: "  Lorem ipsum dolor sit amet consectetur adipisicing elit. In veniam deleniti iure. Natus ab quisquam delectus voluptatem ipsum laboriosam laudantium quia vero rem earum, accusamus officia cumque vel architecto iste.",
         price: 100,
         image: [p_img1],
@@ -90,7 +90,7 @@ export const product = [
     },
     {
         _id: "ae",
-        name: "Sexy Women Basic Casual Fitting Top",
+        name: "Women Basic Casual Fitting Top",
         description: "  Lorem ipsum dolor sit amet consectetur adipisicing elit. In veniam deleniti iure. Natus ab quisquam delectus voluptatem ipsum laboriosam laudantium quia vero rem earum, accusamus officia cumque vel architecto iste.",
         price: 130,
         image: [p_img5],
@@ -178,7 +178,7 @@ export const product = [
     },
     {
         _id: "am",
-        name: "Sexy Women Basic Casual Fitting Top",
+        name: "Women Basic Casual Fitting Top",
         description: "  Lorem ipsum dolor sit amet consectetur adipisicing elit. In veniam deleniti iure. Natus ab quisquam delectus voluptatem ipsum laboriosam laudantium quia vero rem earum, accusamus officia cumque vel architecto iste.",
         price: 130,
         image: [p_img13],
@@ -357,7 +357,7 @@ export const product = [
     },
     {
         _id: "bc",
-        name: "Sexy Women Basic Casual Fitting Top",
+        name: "Women Basic Casual Fitting Top",
         description: "  Lorem ipsum dolor sit amet consectetur adipisicing elit. In veniam deleniti iure. Natus ab quisquam delectus voluptatem ipsum laboriosam laudantium quia vero rem earum, accusamus officia cumque vel architecto iste.",
         price: 210,
         image: [p_img29],

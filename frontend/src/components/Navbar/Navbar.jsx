@@ -14,7 +14,14 @@ import { ShopContext } from '../../context/ShopContext';
 const Navbar = () => {
 
     const [loading, setLoading] = useState(false)
-    const {updateSearchTerm, getCartCount} = useContext(ShopContext)
+    const {updateSearchTerm, getCartCount, token, setToken} = useContext(ShopContext)
+
+    const logout = () => {
+        navigate("/login");
+        localStorage.removeItem("token")
+        setToken("")
+        
+    }
 
     const navigate = useNavigate()
 
@@ -47,7 +54,7 @@ const Navbar = () => {
         <nav className="navbar">
             <div className="nav-top">
                 <Link to='/'>
-                <h2>StyleWave</h2>
+                <h2>Gvshopee</h2>
                 </Link>
                 <div className="Search-bar">
                     <input type="text" value={searchInput} onChange={(e) => setSearchInput(e.target.value)} className='search-input' placeholder='Search for products...'/>
@@ -60,7 +67,7 @@ const Navbar = () => {
                         <Link to='/login'>
                         <p className="dropdown-item">Account</p>
                         </Link>
-                        <p className="dropdown-item">Logout</p>
+                        <p onClick={logout} className="dropdown-item">Logout</p>
                     </div>
                 </div>
                 <div className="cart-icon" onClick={()=>handleNavigation("/cart")}>
