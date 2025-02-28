@@ -12,6 +12,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 
 export const backendUrl = "http://localhost:4000"
+export const currency = "$"
 
 const App = () => {
 
@@ -35,9 +36,9 @@ const App = () => {
               <Sidebar setToken={setToken}/>
               <div className="page-content">
                 <Routes>
-                  <Route path="/add" element={<Add />} />   {/* ✅ No errors */}
-                  <Route path="/list" element={<List />} />
-                  <Route path="/orders" element={<Orders />} />
+                  <Route path="/add" element={<Add token={token}/>} />   {/* ✅ No errors */}
+                  <Route path="/list" element={<List token={token}/>} />
+                  <Route path="/orders" element={<Orders token={token}/>} />
                 </Routes>
               </div>
             </div>

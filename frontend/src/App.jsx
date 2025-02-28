@@ -9,6 +9,7 @@ import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
 import {ToastContainer} from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
+import Checkout from "./pages/Checkout/Checkout"
 
 export const backendUrl = "http://localhost:4000"
 
