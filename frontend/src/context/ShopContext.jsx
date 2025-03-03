@@ -7,7 +7,7 @@ export const ShopContext = createContext();
 
 const ShopContextProvider = ({ children }) => {
   const currency = "$";
-  const delivery_fee = 20;
+  const delivery_fee = 0;
 
   const [cartItems, setCartItems] = useState({});
   const [products, setProducts] = useState([]);
@@ -31,6 +31,15 @@ const ShopContextProvider = ({ children }) => {
     });
 
     toast.success("Product added to cart");
+
+    if(token){
+      try{
+      await axios.post(backendUrl + '/api/cart/add', {itemId,size} , {headers:{token}})
+    }catch(error){
+      console.log(error)
+      toast.error(error.message)
+    }
+  }
   };
 
   const getCartCount = () => {
@@ -40,14 +49,35 @@ const ShopContextProvider = ({ children }) => {
     );
   };
 
-  const updateQuantity = (itemId, size, quantity) => {
-    setCartItems((prev) => {
-      const updatedCart = JSON.parse(JSON.stringify(prev));
-      if (!updatedCart[itemId]) updatedCart[itemId] = {};
-      updatedCart[itemId][size] = quantity;
-      return updatedCart;
-    });
-  };
+  const updateQuantity = async(itemId, size, quantity) => {
+    let cartData = structuredClone(cartItems)
+
+    cartData[itemId][size] = quantity;
+
+    setCartItems(cartData)
+
+      if(koten){
+        try{
+          await axios.post(backendUrl + '/api/cart/update', {itemId, size, quantity}, {headers:{token}})
+        }catch(error){
+          console.log(error)
+          toast.error(error.message)
+
+        }
+      }
+  }
+
+  const getUserCart = async(token) => {
+    try{
+      const response = await axios.post(backendUrl + '/api/cart/get', {} , {headers:{token}})
+      if(response.data.success){
+        setCartItems(response.data.cartData)
+      }
+    }catch(error){
+      console.log(error)
+          toast.error(error.message)
+    }
+  }
 
   const getCartAmount = () => {
     return Object.entries(cartItems).reduce((totalAmount, [itemId, sizes]) => {
@@ -75,6 +105,13 @@ const ShopContextProvider = ({ children }) => {
       toast.error(error.message);
     }
   };
+
+  useEffect(()=> {
+    if(!token && localStorage.getItem('token')){
+      setToken(localStorage.getItem('token'));
+      getUserCart(localStorage.getItem('token'))
+    }
+  },[])
 
   useEffect(() => {
     getProductData();

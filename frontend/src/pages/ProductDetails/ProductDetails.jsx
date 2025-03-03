@@ -58,9 +58,7 @@ const ProductDetails = () => {
             </div>
             <hr className="product-divider"/>
               <div className="product-policy">
-                <p>Free Delivery</p>
-                <p>Seamless and Secure Payment</p>
-                <p>Several payment options availavle</p>
+                
               </div>
               <button onClick={()=>addToCart(productData._id, size)} className="add-to-cart-btn">ADD TO CART</button>
           </div>
