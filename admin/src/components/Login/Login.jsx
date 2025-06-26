@@ -23,7 +23,7 @@ const Login = ({setToken}) => {
                 toast.error(response.data.token)
             }
 
-            //console.log(email,password)
+            console.log(email,password)
         }
         catch(error)
         {

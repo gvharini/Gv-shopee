@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { ShopContext } from '../../context/ShopContext'
 import { Link } from 'react-router-dom'
+import './HomeCollection.css';
+
 
 const HomeCollection = () => {
     const {products} = useContext(ShopContext)

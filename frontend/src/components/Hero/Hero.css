@@ -1,58 +1,115 @@
-.hero{
-    height: 100vh;
+.hero {
+    height: auto;
+    padding: 20px;
 }
-.hero_top{
+
+/* Hero Top Section */
+.hero_top {
     display: flex;
+    flex-wrap: wrap;
     padding-inline: 20px;
     gap: 20px;
     justify-content: space-between;
-    background-color: beige;
+    background-color: rgb(216, 34, 174);
     border-radius: 10px;
+    padding: 20px;
 }
-.hero_left{
-    max-width: 50%;
-    margin-top: 100px;
+
+.hero_left {
+    flex: 1;
+    min-width: 300px;
+    margin-top: 50px;
 }
-.hero_left h2{
-    font-size: 26px;
+
+.hero_left h2 {
+    font-size: 24px;
 }
-.hero_left h1{
-    font-size: 3.5rem;
+
+.hero_left h1 {
+    font-size: 2.5rem;
     margin-top: 10px;
 }
-.hero_left p{
+
+.hero_left p {
     margin-top: 15px;
     font-size: 18px;
     color: #666;
 }
-.hero_right{
-    max-width: 50%;
+
+.hero_right {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.hero_right img{
-    width: 600px;
-    height: 500px;
+
+.hero_right img {
+    max-width: 100%;
+    height: auto;
     object-fit: contain;
 }
-.hero_bottom{
+
+/* Hero Bottom Section */
+.hero_bottom {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 40px;
     width: 100%;
     padding: 25px;
     border-radius: 10px;
 }
-.hero_content{
+
+.hero_content {
     display: flex;
+    align-items: center;
     gap: 15px;
+    flex: 1;
+    min-width: 250px;
+    padding: 10px;
+    text-align: center;
 }
-.info_icon .hero_icon{
+
+.info_icon .hero_icon {
     font-size: 44px;
     color: red;
 }
-.hero_content .detail h3{
-    font-size: 22px;
+
+.hero_content .detail h3 {
+    font-size: 20px;
 }
-.hero_content .detail h1{
+
+.hero_content .detail p {
     color: #555;
-    font-size: 18px;
+    font-size: 16px;
+}
+
+/* Responsive Design for Small Screens */
+@media screen and (max-width: 768px) {
+    .hero_top {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .hero_left,
+    .hero_right {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .hero_left h1 {
+        font-size: 2rem;
+    }
+
+    .hero_bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero_content {
+        flex-direction: column;
+    }
 }

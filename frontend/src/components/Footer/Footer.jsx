@@ -6,15 +6,7 @@ const Footer = () => {
   return (
     <div>
         <div className="footer">
-            <div className="footer-top">
-                <h2>Need Ipdate on Latest Offer?</h2>
-                <p>Subscribe to our newsleeter to get frequnt update</p>
-                <div className="input">
-                    <input type="email" name="email" id="" placeholder='Enter Your email'/>
-                    <button>Join Now</button>
-                </div>
-            </div>
-            <div className="footer-bottom">
+            <div className="footer-content">
                 <div className="footer-left">
                     <h2>GVshopee</h2>
                     <div className="socials">

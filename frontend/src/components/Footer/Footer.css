@@ -1,63 +1,72 @@
-.footer{
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding: 60px;
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+  padding: 20px 40px;
+  z-index: 1000;
+  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.footer-top{
-    display: grid;
-    place-content: center;
-    gap: 30px;
-}
-.footer-top h2{
-    font-size: 40px;
-    text-align: center;
-}
-.footer-top p{
-    font-size: 18px;
-    text-align: center;
-}
-.footer-top .input{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.input input{
-    flex-grow: 1;
-    padding: 15px;
-    border: 2px solid #ff7739;
-    border-right: none;
-    border-radius: 20px 0 0 20px;
-    outline: none;
-    font-size: 14px;
 
+/* Flex container for footer content */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.input button{
-    background-color: #ff7739;
-    color: black;
-    border: none;
-    padding: 15px 20px;
-    border-radius: 0 20px 20px 0;
-    font-weight: bold;
-    cursor: pointer;
+
+/* Footer-left content */
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
-.footer-bottom{
-    display: flex;
-    justify-content: space-between;
-    
+
+.footer-left h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #222;
 }
-.socials{
-    display: flex;
-    gap: 15px;
+
+.socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
 }
-.socials .social-icon{
-    font-size: 20px;
+
+.social-icon {
+  font-size: 20px;
+  color: white;
+  background-color: #ff7739;
+  padding: 8px;
+  border-radius: 50%;
+  transition: transform 0.3s ease, background-color 0.3s;
 }
-.footer-right ul{
-    display: flex;
-    gap: 15px;
+
+.social-icon:hover {
+  background-color: #ff4e50;
+  transform: scale(1.1);
 }
-.footer-right ul li{
-    font-size: 18px;
-    list-style: none;
+
+/* Footer-right content */
+.footer-right ul {
+  list-style:none;
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 20px 60px;
+}
+
+.footer-right li {
+  font-size: 17px;
+  color: #0f0f0f;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.footer-right li:hover {
+  color: #ff4e50;
+  transform: translateY(-2px);
 }

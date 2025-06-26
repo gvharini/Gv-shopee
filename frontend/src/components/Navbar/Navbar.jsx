@@ -60,6 +60,14 @@ const Navbar = () => {
                     <input type="text" value={searchInput} onChange={(e) => setSearchInput(e.target.value)} className='search-input' placeholder='Search for products...'/>
                     <button onClick={handleSearch} className="search-btn">Search</button>
                 </div>
+                <div className="nav-dropdown">
+                    <button className="dropdown-button">Categories ▾</button>
+                    <div className="dropdown-content">
+                        <div onClick={() => handleNavigation("/category/Men")} className="dropdown-link">Men</div>
+                        <div onClick={() => handleNavigation("/category/Women")} className="dropdown-link">Women</div>
+                        <div onClick={() => handleNavigation("/category/Kids")} className="dropdown-link">Kids</div>
+                    </div>
+                </div>
                 <div className="icons">
                 <div className="profile-group">
                     <BiUser className='icon'/>
@@ -76,13 +84,7 @@ const Navbar = () => {
                 </div>
             </div>
             </div>
-            <div className="nav-botton">
-                <div className="nav-container">
-                    <div onClick={()=>handleNavigation("/category/Men")} className="navbar-link">Men</div>
-                    <div onClick={()=>handleNavigation("/category/Women")} className="navbar-link">Women</div>
-                    <div onClick={()=>handleNavigation("/category/Kids")} className="navbar-link">Kids</div>
-                </div>
-            </div>
+
         </nav>
     </div>
   )
