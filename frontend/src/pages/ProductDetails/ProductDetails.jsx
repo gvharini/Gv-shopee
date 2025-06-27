@@ -66,7 +66,6 @@ const ProductDetails = () => {
         <div className="description-review-sect">
           <div className="tabs">
             <b className="tab active">Description</b>
-            <p className="tab">Reviews</p>
           </div>
           <div className="discription-content">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat, quos quidem id labore quis accusamus sunt iste possimus magnam voluptates ullam magni corporis, alias numquam? Ea, distinctio. Illum, neque ea?</p>

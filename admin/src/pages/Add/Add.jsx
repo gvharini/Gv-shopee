@@ -16,7 +16,6 @@ const Add = ({token}) => {
   const [description, setDescription] = useState("")
   const [price, setPrice] = useState("")
   const [category, setCategory] = useState("Men")
-  const [bestSeller, setBestSeller] = useState(false)
   const [sizes, setSizes] = useState([])
 
   const onSubmitHandler = async(e) => {
@@ -29,7 +28,6 @@ const Add = ({token}) => {
       formData.append("description", description)
       formData.append("price", price)
       formData.append("category", category)
-      formData.append("bestSeller", bestSeller)
       formData.append("siezs", JSON.stringify(sizes))
 
       image1 && formData.append("image1", image1 ? image1 : null)
@@ -146,17 +144,7 @@ const Add = ({token}) => {
     ))}
   </div>
 </div>
-
-      </div>
-      <div className="checkbox-group">
-        <input 
-        onChange={() => setBestSeller((prev) => !prev)}
-        checked={bestSeller}
-        type="checkbox" 
-        id="bestSeller"
-        className='check' />
-        <label htmlFor="bestseller">Add to bestseller</label>
-      </div>
+</div>
       <button type="sumit" className='submit-button'>ADD PRODUCT</button>
     </form>
   )

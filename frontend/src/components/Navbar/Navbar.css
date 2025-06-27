@@ -1,28 +1,37 @@
 /* === Navbar Base === */
 .navbar {
-  width: 100%;
-  background: linear-gradient(135deg, #f76b8a, #f9d3d3);
+  width: 100vw; /* Full width */
+  background: linear-gradient(135deg, #f76b8a 0%, #f9d3d3 100%);
   padding: 1rem 2rem;
   font-family: 'Segoe UI', sans-serif;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  position: sticky;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: fixed;
   top: 0;
-  z-index: 999;
+  left: 0;
+  z-index: 1000;
 }
 
+/* Ensure space below navbar */
+body {
+  padding-top: 100px; /* adjust if navbar height changes */
+}
+
+/* Navbar Top Section */
 .nav-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
   gap: 1rem;
+  flex-wrap: wrap;
+  max-width: 1300px;
+  margin: 0 auto; /* centers the navbar content */
 }
 
 /* === Brand === */
 .navbar h2 {
   color: #fff;
   font-weight: 700;
-  margin-right: 20px;
+  margin: 0;
   white-space: nowrap;
 }
 
@@ -36,7 +45,7 @@
 
 .search-input {
   padding: 10px;
-  flex: 1;
+  flex-grow: 1;
   border: none;
   border-radius: 6px;
   font-size: 16px;
@@ -49,15 +58,15 @@
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: 0.3s ease;
   font-weight: bold;
+  transition: background 0.3s ease;
 }
 
 .search-btn:hover {
   background-color: #ffe8ec;
 }
 
-/* === Category Dropdown === */
+/* === Dropdown === */
 .nav-dropdown {
   position: relative;
 }
@@ -76,7 +85,7 @@
   display: none;
   position: absolute;
   background: white;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   top: 110%;
   left: 0;
   border-radius: 6px;
@@ -88,8 +97,8 @@
 .dropdown-link {
   padding: 12px 16px;
   cursor: pointer;
-  transition: background 0.3s;
   color: #333;
+  transition: background-color 0.3s ease;
   white-space: nowrap;
 }
 
@@ -101,11 +110,21 @@
   display: flex;
 }
 
-/* === Icons Group === */
+/* === Icons === */
 .icons {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+.icon {
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+.icon:hover {
+  color: #f76b8a;
 }
 
 /* === Profile Dropdown === */
@@ -119,7 +138,7 @@
   top: 110%;
   right: 0;
   background-color: white;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
   min-width: 140px;
   z-index: 100;
@@ -130,7 +149,6 @@
   cursor: pointer;
   color: #333;
   transition: background-color 0.3s ease;
-  white-space: nowrap;
 }
 
 .dropdown-item:hover {
@@ -141,7 +159,7 @@
   display: block;
 }
 
-/* === Cart Icon === */
+/* === Cart === */
 .cart-icon {
   position: relative;
   cursor: pointer;
@@ -162,7 +180,7 @@
 .loader-container {
   position: fixed;
   inset: 0;
-  background: rgba(255,255,255,0.7);
+  background: rgba(255, 255, 255, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -176,16 +194,16 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-/* === Responsive Styles === */
+/* === Responsive === */
 @media screen and (max-width: 768px) {
-  .navbar {
-    padding: 1rem;
-  }
-
   .nav-top {
     flex-direction: column;
     align-items: stretch;
@@ -212,8 +230,8 @@
   .dropdown-menu {
     position: static;
     box-shadow: none;
-    width: 100%;
     border: 1px solid #ddd;
+    width: 100%;
   }
 
   .dropdown-button {

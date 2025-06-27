@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Add from "./pages/Add/Add.jsx";  // ✅ Ensure Add.jsx has a default export
 import List from "./pages/List/List.jsx";
 import Login from "./components/Login/Login.jsx"
+import Order from "./pages/Orders/Orders.jsx"
 
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -37,6 +38,7 @@ const App = () => {
                 <Routes>
                   <Route path="/add" element={<Add token={token}/>} />   {/* ✅ No errors */}
                   <Route path="/list" element={<List token={token}/>} />
+                  <Route path="/order" element={<Order token={token}/>} />
                 </Routes>
               </div>
             </div>

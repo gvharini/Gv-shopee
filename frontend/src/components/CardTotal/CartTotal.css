@@ -17,6 +17,11 @@
     justify-content: space-between;
     margin: 0.5rem 0;
   }
+
+  .cart-row p{
+    display: flex;
+    font-size: 20px;
+  }
   
   .cart-divider {
     border: none;

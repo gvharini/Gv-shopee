@@ -4,13 +4,12 @@ body {
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
-  min-height: 100vh;
+  min-height: 79vh;
   display: flex;
-  align-items: center;      /* ❌ REMOVE */
-  justify-content: center;  /* ✅ Keep only this or use text-align */
+  align-items: center;
+  justify-content: center;
   animation: fadeInBg 1.5s ease-in-out;
 }
-
 
 /* Form container with animation */
 .auth-form {
@@ -18,7 +17,7 @@ body {
   flex-direction: column;
   align-items: center;
   width: 90%;
-  max-width: 24rem;
+  width: 20rem;
   padding: 2rem;
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 1rem;

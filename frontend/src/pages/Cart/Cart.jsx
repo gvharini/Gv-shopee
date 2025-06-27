@@ -88,6 +88,8 @@ const Cart = () => {
         <div className="check-container">
           <div className="checkout-box">
             <CartTotal />
+            <div className='checkout-wrapper'>
+
             <div className="checkout-button-container">
               <button
                 className="checkout-button"
@@ -96,6 +98,7 @@ const Cart = () => {
                 PROCEED TO CHECKOUT
               </button>
             </div>
+          </div>
           </div>
         </div>
       )}

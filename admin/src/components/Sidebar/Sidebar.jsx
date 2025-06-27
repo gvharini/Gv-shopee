@@ -21,6 +21,10 @@ const Sidebar = ({setToken}) => {
                     <MdFormatListBulleted className="sidebar-icon" />  {/* ✅ Fixed here */}
                     <p className="sidebar-text">List Products</p>
                 </NavLink>
+                <NavLink className='sidebar-link' to="/order">
+                    <MdAddShoppingCart className="sidebar-icon" />  {/* ✅ Fixed here */}
+                    <p className="sidebar-text">Orders</p>
+                </NavLink>
                 <button onClick={() => setToken("")} className="sidebar-link">
                     <IoIosLogOut className="sidebar-icon" />
                     <p className="sidebar-text">Logout</p>

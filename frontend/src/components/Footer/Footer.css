@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-  padding: 20px 40px;
+  padding: 1px 50px;
   z-index: 1000;
   box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
