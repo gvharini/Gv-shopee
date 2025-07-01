@@ -12,7 +12,7 @@ const List = ({token}) => {
 
   const fetchList = async () => {
     try{
-      const response = await axios.get(backendUrl + '/api/product/list', {headers: {token}})
+      const response = await axios.get(backendUrl + '/api/product/list', {headers: {Authorization: `Bearer ${token}`,}})
 
       if(response.data.success){
         setList(response.data.product)
@@ -30,7 +30,7 @@ const List = ({token}) => {
   const removeProduct = async (_id) => {
   try {
     const response = await axios.delete(`${backendUrl}/api/product/remove/${_id}`, {
-      headers: { token }
+      headers: { Authorization: `Bearer ${token}`, }
     });
 
     if (response.data.success) {
