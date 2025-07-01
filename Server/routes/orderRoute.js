@@ -2,8 +2,6 @@ import express from 'express';
 import { 
     allOrder, 
     placeOrder, 
-    placeOrderRazorPay, 
-    placeOrderStripe, 
     updateStatus, 
     userOrders 
 } from '../controllers/orderControllers.js';
@@ -19,8 +17,6 @@ orderRouter.post('/status', adminAuth, updateStatus);
 
 // Payment features
 orderRouter.post('/place', authUser, placeOrder);
-orderRouter.post('/stripe', authUser, placeOrderStripe);
-orderRouter.post('/razorpay', authUser, placeOrderRazorPay);
 
 // User feature
 orderRouter.post('/userorders', authUser, userOrders);

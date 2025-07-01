@@ -27,25 +27,24 @@ const List = ({token}) => {
     }
   }
 
-  const removeProduct = async(_id) => {
-    try{
-      const response = await axios.post(backendUrl + '/api/product/remove', {_id} , {headers : {token}})
+  const removeProduct = async (_id) => {
+  try {
+    const response = await axios.delete(`${backendUrl}/api/product/remove/${_id}`, {
+      headers: { token }
+    });
 
-      if(response.data.success)
-      {
-        toast.success(response.data.message)
-        console.log(response.data.message)
-
-        await fetchList();
-      }
-      else{
-        toast.error(response.data.message)
-      }
-    }catch(error){
-      console.log(error)
-      toast.error(error.message)
+    if (response.data.success) {
+      toast.success(response.data.message);
+      await fetchList(); // Refresh the list
+    } else {
+      toast.error(response.data.message);
     }
+  } catch (error) {
+    console.log(error);
+    toast.error(error.message);
   }
+};
+
 
   useEffect(() => {
     fetchList();

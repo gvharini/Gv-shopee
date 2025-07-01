@@ -32,6 +32,7 @@ const Checkout = () => {
     event.preventDefault();
 
     try {
+      console.log("Token being sent:", token); 
       let orderItems = [];
 
       for (const itemId in cartItems) {
@@ -59,9 +60,13 @@ const Checkout = () => {
       switch (method) {
         case "cod":
           const response = await axios.post(
-            backendUrl + '/api/order/place' ,
+            backendUrl + '/api/order/place',
             orderData,
-            {headers: {token}}
+            {
+              headers: {
+                Authorization: `Bearer ${token}`
+              }
+            }
           );
           console.log(response.data);
           break;
@@ -79,9 +84,9 @@ const Checkout = () => {
       <form className="shipping-form" onSubmit={onSubmitHandler}>
         {/* Payment Options */}
         <div className="payment-options">
-          <button 
-            type="button" 
-            onClick={() => setMethod("cod")} 
+          <button
+            type="button"
+            onClick={() => setMethod("cod")}
             className={`payment-button ${method === "cod" ? "active" : ""}`}
           >
             ONLY CASH ON DELIVERY
@@ -109,26 +114,26 @@ const Checkout = () => {
             />
           </div>
           <div className="form-group">
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            placeholder="Email"
-            onChange={onChangeHandler}
-            required
-          />
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              placeholder="Email"
+              onChange={onChangeHandler}
+              required
+            />
           </div>
           <div className="form-group">
-          <input
-            type="text"
-            name="street"
-            value={formData.street}
-            placeholder="Street Address"
-            onChange={onChangeHandler}
-            required
-          />
+            <input
+              type="text"
+              name="street"
+              value={formData.street}
+              placeholder="Street Address"
+              onChange={onChangeHandler}
+              required
+            />
           </div>
-          
+
           <div className="form-group">
             <input
               type="text"
@@ -166,16 +171,16 @@ const Checkout = () => {
             />
           </div>
           <div className="form-group">
-          <input
-            type="tel"
-            name="phone"
-            value={formData.phone}
-            placeholder="Phone Number"
-            onChange={onChangeHandler}
-            required
-          />
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              placeholder="Phone Number"
+              onChange={onChangeHandler}
+              required
+            />
           </div>
-          
+
         </div>
 
         {/* Order Summary & Place Order Button */}

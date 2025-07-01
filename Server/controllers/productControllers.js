@@ -10,7 +10,7 @@ const addProduct = async (req, res) => {
     const price = req.body.price;
     const description = req.body.description;
     const category = req.body.category;
-    const sizes = req.body.sizes;
+    const sizes =JSON.parse( req.body.sizes);
     
 
     if (!name) {
@@ -36,7 +36,7 @@ const addProduct = async (req, res) => {
       description,
       price: Number(price),
       category,
-      sizes: JSON.parse(sizes || "[]"),
+      sizes: sizes,
       image: imagesUrl,
       date: Date.now(),
     };
@@ -63,13 +63,15 @@ const listProducts = async (req, res) => {
 
 const removeProduct = async (req, res) => {
   try {
-    await productModel.findByIdAndDelete(req.body._id);
-    res.json({ success: true, message: 'Product deleted' });
+    const { id } = req.params;
+    await productModel.findByIdAndDelete(id);
+    res.json({ success: true, message: 'Product deleted successfully' });
   } catch (error) {
     console.log("Error:", error.message);
     res.json({ success: false, message: error.message });
   }
 };
+
 
 const singleProduct = async (req, res) => {
   try {

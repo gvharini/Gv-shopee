@@ -28,7 +28,8 @@ const Add = ({token}) => {
       formData.append("description", description)
       formData.append("price", price)
       formData.append("category", category)
-      formData.append("siezs", JSON.stringify(sizes))
+     formData.append("sizes", JSON.stringify(["S", "M", "L", "XL"])); // ✅ Correct format
+
 
       image1 && formData.append("image1", image1 ? image1 : null)
       image2 && formData.append("image2", image2 ? image2 : null)
@@ -36,7 +37,7 @@ const Add = ({token}) => {
       image4 && formData.append("image4", image4 ? image4 : null)
 
       const response = await axios.post(
-        backendUrl + "/api/product/add" , formData, {headers: {token}}
+        backendUrl + "/api/product/add" , formData, {headers: {Authorization: `Bearer ${token}`}}
       )
       //console.log(response.data)
 

@@ -34,7 +34,7 @@ const ShopContextProvider = ({ children }) => {
 
     if(token){
       try{
-      await axios.post(backendUrl + '/api/cart/add', {itemId,size} , {headers:{token}})
+      await axios.post(backendUrl + '/api/cart/add', {itemId,size} , {headers:{Authorization: `Bearer ${token}`}})
     }catch(error){
       console.log(error)
       toast.error(error.message)
@@ -56,9 +56,10 @@ const ShopContextProvider = ({ children }) => {
 
     setCartItems(cartData)
 
-      if(koten){
+      if(token){
+         console.log("Sending token:", token);
         try{
-          await axios.post(backendUrl + '/api/cart/update', {itemId, size, quantity}, {headers:{token}})
+          await axios.post(backendUrl + '/api/cart/update', {itemId, size, quantity}, {headers:{Authorization: `Bearer ${token}`}})
         }catch(error){
           console.log(error)
           toast.error(error.message)
@@ -106,12 +107,15 @@ const ShopContextProvider = ({ children }) => {
     }
   };
 
-  useEffect(()=> {
-    if(!token && localStorage.getItem('token')){
-      setToken(localStorage.getItem('token'));
-      getUserCart(localStorage.getItem('token'))
-    }
-  },[])
+useEffect(() => {
+  const storedToken = localStorage.getItem('token');
+  console.log("Loaded token from localStorage:", storedToken);
+  if (!token && storedToken) {
+    setToken(storedToken);
+    getUserCart(storedToken);
+  }
+}, []);
+
 
   useEffect(() => {
     getProductData();
